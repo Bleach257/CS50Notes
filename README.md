@@ -1,13 +1,12 @@
 <div align="center">
 
-# 📚 CS50 Notes
+# 💻 Computer Science Notes
 
-**A structured, personal knowledge base for Harvard's CS50: Introduction to Computer Science**
+**A personal knowledge base for everything computer science — from fundamentals to advanced topics**
 
-[![Progress](https://img.shields.io/badge/Progress-In%20Progress-blue?style=flat-square)](https://github.com/Bleach257/CS50NOTES)
-[![CS50](https://img.shields.io/badge/Course-CS50x-crimson?style=flat-square&logo=edx)](https://cs50.harvard.edu/x/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Last Updated](https://img.shields.io/badge/Updated-2026-orange?style=flat-square)](https://github.com/Bleach257/CS50NOTES/commits/main)
+[![Last Updated](https://img.shields.io/badge/Updated-2026-blue?style=flat-square)]()
+[![Status](https://img.shields.io/badge/Status-Active%20Learning-orange?style=flat-square)]()
 
 </div>
 
@@ -16,123 +15,214 @@
 ## 🗂 Table of Contents
 
 - [About](#-about)
-- [Course Modules](#-course-modules)
-- [Note Structure](#-note-structure)
+- [Knowledge Areas](#-knowledge-areas)
+- [Courses](#-courses)
 - [How to Use](#-how-to-use)
-- [Progress Tracker](#-progress-tracker)
+- [Progress](#-progress)
 - [Resources](#-resources)
 
 ---
 
 ## 🎯 About
 
-This repository contains my personal notes, code snippets, and key takeaways from **CS50x — Harvard University's introduction to the intellectual enterprises of computer science**. Notes are organized by week and topic, written in a concise, reference-friendly format.
+This repository contains my personal notes from learning computer science — organized by **domain**, not by course. Notes capture concepts, code examples, problem-solving insights, and reference materials for quick lookup.
 
-> "This is CS50." — David J. Malan
+> "Computer science is no more about computers than astronomy is about telescopes." — Edsger Dijkstra
 
 **What you'll find here:**
-- 📝 Lecture notes with key concepts highlighted
-- 💻 Code examples and syntax references
-- 🧩 Problem set reflections
-- 🔗 Curated external resources
+- 📘 Core computer science fundamentals
+- 💻 Programming language notes
+- 🔢 Algorithms & data structures
+- 🖥️ Systems & networking
+- 🤖 AI, ML, and LLMs
+- 🌐 Web development
+- 🔐 Security & cryptography
+- 📐 Mathematics for CS
 
 ---
 
-## 📦 Course Modules
+## 📚 Knowledge Areas
 
-| # | Week | Topic | Notes | Status |
-|---|------|-------|-------|--------|
-| 0 | Week 0 | [Scratch — Computational Thinking](./week0-scratch/) | [📄 Notes](./week0-scratch/notes.md) | ✅ Done |
-| 1 | Week 1 | [C — Basics](./week1-c/) | [📄 Notes](./week1-c/notes.md) | ✅ Done |
-| 2 | Week 2 | [Arrays](./week2-arrays/) | [📄 Notes](./week2-arrays/notes.md) | 🔄 In Progress |
-| 3 | Week 3 | [Algorithms](./week3-algorithms/) | [📄 Notes](./week3-algorithms/notes.md) | ⏳ Pending |
-| 4 | Week 4 | [Memory](./week4-memory/) | [📄 Notes](./week4-memory/notes.md) | ⏳ Pending |
-| 5 | Week 5 | [Data Structures](./week5-data-structures/) | [📄 Notes](./week5-data-structures/notes.md) | ⏳ Pending |
-| 6 | Week 6 | [Python](./week6-python/) | [📄 Notes](./week6-python/notes.md) | ⏳ Pending |
-| 7 | Week 7 | [SQL](./week7-sql/) | [📄 Notes](./week7-sql/notes.md) | ⏳ Pending |
-| 8 | Week 8 | [HTML, CSS, JavaScript](./week8-html-css-js/) | [📄 Notes](./week8-html-css-js/notes.md) | ⏳ Pending |
-| 9 | Week 9 | [Flask](./week9-flask/) | [📄 Notes](./week9-flask/notes.md) | ⏳ Pending |
-| 10 | Week 10 | [Ethics & AI](./week10-ethics/) | [📄 Notes](./week10-ethics/notes.md) | ⏳ Pending |
+### Programming Languages
+
+| Language | Notes | Resources |
+|----------|-------|-----------|
+| [Python](./programming/python/) | [📄 Notes](./programming/python/notes.md) | [Official Docs](https://docs.python.org/) |
+| C++ | — | — |
+| Java | — | — |
+| JavaScript | — | — |
+| Go | — | — |
+
+### Algorithms
+
+| Topic | Notes | Complexity |
+|-------|-------|------------|
+| [Sorting](./algorithms/sorting/) | — | O(n log n) |
+| [Searching](./algorithms/searching/) | — | O(log n) |
+| [Graph](./algorithms/graph/) | — | Varies |
+| [Dynamic Programming](./algorithms/dp/) | — | — |
+
+### Data Structures
+
+| Structure | Notes | Operations |
+|-----------|-------|------------|
+| Arrays & Lists | — | O(n) / O(1) |
+| [Linked Lists](./data-structures/linked-lists/) | — | O(n) |
+| [Trees](./data-structures/trees/) | — | O(log n) |
+| [Hash Tables](./data-structures/hash-tables/) | — | O(1)* |
+| [Tries](./data-structures/tries/) | — | O(k) |
+
+### Systems
+
+| Domain | Notes | Key Concepts |
+|--------|-------|--------------|
+| [Operating Systems](./systems/os/) | — | Processes, Threads, Memory |
+| [Networks](./systems/networks/) | — | TCP/IP, HTTP, DNS |
+| [Distributed Systems](./systems/distributed/) | — | Consensus, CAP |
+| [Compilers](./systems/compilers/) | — | Lexing, Parsing, Codegen |
+
+### Web Development
+
+| Area | Notes | Stack |
+|------|-------|-------|
+| [Frontend](./web-dev/frontend/) | — | React, HTML/CSS, JS |
+| [Backend](./web-dev/backend/) | — | Python, Go, Node |
+| [DevOps](./web-dev/devops/) | — | Docker, CI/CD, K8s |
+
+### AI & Machine Learning
+
+| Topic | Notes | Focus |
+|-------|-------|-------|
+| [Machine Learning](./ai-ml/machine-learning/) | — | Classical ML |
+| [Deep Learning](./ai-ml/deep-learning/) | — | Neural Networks |
+| [NLP](./ai-ml/nlp/) | — | Transformers |
+| [LLMs](./ai-ml/llms/) | — | GPT, Claude, Prompting |
+
+### Software Engineering
+
+| Practice | Notes | Purpose |
+|----------|-------|---------|
+| [Design Patterns](./software-engineering/design-patterns/) | — | Reusable solutions |
+| [Testing](./software-engineering/testing/) | — | Quality assurance |
+| [Dev Practices](./software-engineering/dev-practices/) | — | Code review, CI, TDD |
+
+### Databases
+
+| Type | Notes | Examples |
+|------|-------|----------|
+| [SQL](./databases/sql/) | — | PostgreSQL, MySQL |
+| [NoSQL](./databases/nosql/) | — | MongoDB, Redis |
+| [Caching](./databases/caching/) | — | Redis, Memcached |
+
+### Security
+
+| Area | Notes | Topics |
+|------|-------|--------|
+| Cryptography | — | Encryption, Hashing |
+| Network Security | — | TLS, Firewalls |
+| App Security | — | XSS, CSRF, Injection |
+
+### Mathematics for CS
+
+| Domain | Notes | Relevance |
+|--------|-------|-----------|
+| [Discrete Math](./math-theory/discrete-math/) | — | Logic, Sets, Graphs |
+| Calculus | — | Optimization, Gradients |
+| [Linear Algebra](./math-theory/linear-algebra/) | — | ML, Graphics |
+| Probability | — | ML, Algorithms |
 
 ---
 
-## 🗃 Note Structure
+## 🎓 Courses
 
-Each week's folder follows a consistent layout:
+Structured notes from formal courses and learning paths.
 
-```
-week{n}-{topic}/
-├── notes.md          # Main lecture notes
-├── cheatsheet.md     # Quick reference / syntax summary
-├── pset/             # Problem set notes & code
-│   ├── problem1.md
-│   └── problem1.c
-└── resources.md      # Useful links & references
-```
-
-### Inside `notes.md`
-
-Each note file is structured as:
-
-```markdown
-# Week N — Topic Name
-
-## 🎯 Learning Objectives
-## 📖 Key Concepts
-## 💻 Code Examples
-## 🧩 Problem Set Notes
-## 🔗 Further Reading
-```
+| Course | Platform | Status |
+|--------|----------|--------|
+| [CS50](./courses/cs50/) | Harvard | 🔄 In Progress |
+| CS61A | Berkeley | ⏳ Planned |
+| Operating Systems | CMU | ⏳ Planned |
+| Machine Learning | Stanford | ⏳ Planned |
 
 ---
 
 ## 🚀 How to Use
 
-**Clone this repo:**
+### Browse Locally
+
 ```bash
 git clone https://github.com/Bleach257/CS50NOTES.git
 cd CS50NOTES
 ```
 
-**Browse locally** — all notes are plain Markdown, readable in any editor.
+### Recommended Tools
 
-**Recommended tools:**
-- [Obsidian](https://obsidian.md/) — best for local Markdown knowledge bases
-- [VS Code](https://code.visualstudio.com/) with Markdown Preview extension
-- [Typora](https://typora.io/) — clean WYSIWYG Markdown editor
+- **[Obsidian](https://obsidian.md/)** — Best for local Markdown knowledge bases
+- **[VS Code](https://code.visualstudio.com/)** — With Markdown Preview extension
+- **[Typora](https://typora.io/)** — Clean WYSIWYG editor
+
+### Note Structure
+
+Each topic follows a consistent format:
+
+```markdown
+# Topic Name
+
+## 📖 Overview
+## 💻 Code Examples
+## 🔗 Further Reading
+## ❓ Questions & Confusions
+```
 
 ---
 
-## 📊 Progress Tracker
+## 📊 Progress
 
 ```
-Week 0  — Scratch          ████████████ 100%  ✅
-Week 1  — C                ████████████ 100%  ✅
-Week 2  — Arrays           ██████░░░░░░  50%  🔄
-Week 3  — Algorithms       ░░░░░░░░░░░░   0%  ⏳
-Week 4  — Memory           ░░░░░░░░░░░░   0%  ⏳
-Week 5  — Data Structures  ░░░░░░░░░░░░   0%  ⏳
-Week 6  — Python           ░░░░░░░░░░░░   0%  ⏳
-Week 7  — SQL              ░░░░░░░░░░░░   0%  ⏳
-Week 8  — HTML/CSS/JS      ░░░░░░░░░░░░   0%  ⏳
-Week 9  — Flask            ░░░░░░░░░░░░   0%  ⏳
-Week 10 — Ethics & AI      ░░░░░░░░░░░░   0%  ⏳
+Programming Languages      ████████░░ 60%
+Algorithms                 ██████░░░░ 50%
+Data Structures            ██████░░░░ 50%
+Systems                    ████░░░░░░ 30%
+Web Development           ███░░░░░░░ 20%
+AI & ML                    ███░░░░░░░ 20%
+Software Engineering       ██░░░░░░░░ 10%
+Databases                  ██░░░░░░░░ 10%
+Security                   ██░░░░░░░░ 10%
+Mathematics for CS         █░░░░░░░░░ 5%
 ```
 
-> Update this tracker as you complete each week!
+> *Progress estimates — updated as I learn*
 
 ---
 
 ## 🔗 Resources
 
+### Learning Platforms
+
 | Resource | Link |
 |----------|------|
-| CS50 Official Site | [cs50.harvard.edu](https://cs50.harvard.edu/x/) |
-| CS50 on edX | [edx.org/cs50](https://www.edx.org/learn/computer-science/harvard-university-cs50-s-introduction-to-computer-science) |
-| CS50 Discord | [discord.gg/cs50](https://discord.gg/cs50) |
-| CS50 Subreddit | [r/cs50](https://www.reddit.com/r/cs50/) |
-| CS50 IDE (VS Code) | [cs50.dev](https://cs50.dev/) |
-| Manual Pages (C) | [manual.cs50.io](https://manual.cs50.io/) |
+| CS50 | [cs50.harvard.edu](https://cs50.harvard.edu/x/) |
+| CS61A | [cs61a.org](https://cs61a.org/) |
+| Coursera CS Specialization | [coursera.org](https://www.coursera.org/browse/computer-science) |
+| edX CS Courses | [edx.org](https://www.edx.org/learn/computer-science) |
+
+### References
+
+| Resource | Link |
+|----------|------|
+| MDN Web Docs | [developer.mozilla.org](https://developer.mozilla.org/) |
+| Algorithms & Data Structures | [visualgo.net](https://visualgo.net/) |
+| LeetCode | [leetcode.com](https://leetcode.com/) |
+| System Design Primer | [github.com/donnemartin](https://github.com/donnemartin/system-design-primer) |
+
+---
+
+## 📝 Note Templates
+
+Use the templates in [`_templates/`](./_templates/) for consistency:
+- [Generic Note Template](_templates/notes-template.md)
+- [Problem-Solving Template](_templates/problem-solving-template.md)
+- [Code Review Template](_templates/code-review-template.md)
 
 ---
 
@@ -140,6 +230,6 @@ Week 10 — Ethics & AI      ░░░░░░░░░░░░   0%  ⏳
 
 Made with ☕ and 💻 by [Bleach257](https://github.com/Bleach257)
 
-*"The most important skill in computer science is problem solving." — CS50*
+*"The only way to learn a new programming language is by writing programs in it." — Dennis Ritchie*
 
 </div>

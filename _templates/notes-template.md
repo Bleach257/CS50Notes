@@ -1,76 +1,53 @@
-# Week N — Topic Name
+# Topic Name
 
-> 📅 Date: YYYY-MM-DD  
-> 🎓 Source: [CS50 Lecture N](https://cs50.harvard.edu/x/)  
-> ⏱ Duration: ~2 hours
-
----
-
-## 🎯 Learning Objectives
-
-- [ ] Objective 1
-- [ ] Objective 2
-- [ ] Objective 3
+> 📅 Last Updated: YYYY-MM-DD  
+> 🔗 Reference: [Link to Official Docs](https://example.com)
 
 ---
 
-## 📖 Key Concepts
+## 📖 Overview
+
+Brief description of what this topic is about.
+
+> Quote or key insight about this topic.
+
+---
+
+## 💻 Core Concepts
 
 ### Concept 1
 
-Brief explanation of the concept.
+Explanation with code example if applicable.
 
-> 💡 **Key Insight:** Something important to remember.
+```python
+# Code example here
+def example():
+    pass
+```
 
 ### Concept 2
 
-Brief explanation.
-
-```language
-// Code example here
-```
+Another key concept.
 
 ---
 
-## 💻 Code Examples
+## 🎯 Key Points
 
-### Example 1 — Title
-
-```c
-// Code goes here
-#include <stdio.h>
-
-int main(void)
-{
-    printf("Hello, world!\n");
-    return 0;
-}
-```
-
-**What this does:** Brief explanation of what the code demonstrates.
+| Aspect | Details |
+|--------|---------|
+| Point 1 | Description |
+| Point 2 | Description |
 
 ---
 
-## 🧩 Problem Set Notes
+## 💡 Use Cases
 
-### Problem: [Problem Name]
-
-**Description:** What the problem asks you to do.
-
-**Approach:**
-1. Step 1
-2. Step 2
-3. Step 3
-
-**Key challenge:** What was tricky and how you solved it.
-
-**My solution:** [Link to code file](./pset/)
+- Use case 1
+- Use case 2
 
 ---
 
 ## ❓ Questions & Confusions
-
-> Things I'm not sure about yet — to revisit later.
 
 - [ ] Question 1?
 - [ ] Question 2?
@@ -79,9 +56,9 @@ int main(void)
 
 ## 🔗 Further Reading
 
-- [Resource Title](https://example.com) — Brief description
-- [Resource Title](https://example.com) — Brief description
+- [Resource 1](https://example.com) — Description
+- [Resource 2](https://example.com) — Description
 
 ---
 
-*[← Previous Week](../week{n-1}-{topic}/) · [Back to Index](../README.md) · [Next Week →](../week{n+1}-{topic}/)*
+*[← Parent Category](../category/) · [Back to Index](../../README.md)]*
