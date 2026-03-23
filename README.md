@@ -1,2 +1,2 @@
-# CS50Notes
-My notes when I’m studying cs50
+#My_notes
+My notes when I’m studying cs
