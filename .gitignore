@@ -1,0 +1,32 @@
+# .gitignore for CS50 Notes
+
+# Compiled C binaries
+*.o
+*.out
+a.out
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VS Code settings
+.vscode/
+
+# Compiled executables (no extension on Linux/macOS)
+# Add specific program names if needed
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+
+# SQLite databases (if any)
+*.db
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.log
