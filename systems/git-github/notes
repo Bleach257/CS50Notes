@@ -1,1 +1,29 @@
-
+First:"cd desktop" If your folder is stored in the 
+"touch"creat
+git clear
+cd touch pwd mkdir ls "ls -la"
+before "git init"
+type "ls -la"shows a hidden folder
+git clone+link to clone a repository from the cloud to local
+two ways to create a repository: 1.initialize locally 2.clone from the cloud
+git status to see which files are changed 
+git add --all git add -A to let git tracks new folders
+git reset to returns everything to the previous unstaged state
+git add. git will only stage the changes within the current directory and everything inside it 
+git add * only stages new or modified files but not deleted
+git add name to stage individual files by specifying their names
+git add*.+kind stages all this type of files in the currnt directory excluding deleted ones 
+git commit -m "describe"
+git config --global user.email "email"
+git config --global user. name "Logic Base Labs"
+git rm & git rm -f(Completely deletes the file)
+git reset --hard
+git rm --cached(Only removes it from staging)
+git rm -r
+git branch
+git checkout
+git log 
+git diff
+pull = fetch + merge
+git restore
+git restore --staged.
