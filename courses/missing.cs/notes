@@ -1,1 +1,20 @@
-
+basic command:
+date
+echo(print)
+echo $PATH
+pwd
+cd /
+cd ..
+cd ./
+ls
+cd ~
+mv
+cp
+rm
+redir
+mkdir
+man ls
+< file › file^C
+echo hello › hello.txt
+cat hello.txt
+cat ‹ hello.txt
