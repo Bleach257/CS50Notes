@@ -1,137 +1,229 @@
 # Week 0 — Scratch & Computational Thinking
 
-> 📅 Date: 2026-03-23  
-> 🎓 Source: [CS50 Lecture 0](https://cs50.harvard.edu/x/2024/weeks/0/)  
-> ⏱ Duration: ~2 hours
+> 📅 Source: [CS50 Lecture 0](https://cs50.harvard.edu/x/2026/notes/0/)  
+> 🎓 Course: CS50x 2026  
+> 👨‍🏫 Instructor: David J. Malan
 
 ---
 
 ## 🎯 Learning Objectives
 
-- [x] Understand what computer science really is
-- [x] Think computationally — inputs, outputs, algorithms
-- [x] Get familiar with Scratch as a visual programming language
-- [x] Understand basic programming constructs: loops, conditions, functions, events
+- Understand AI's relationship with programming fundamentals
+- Learn how computers represent information (binary, ASCII, Unicode, RGB)
+- Understand algorithms and their efficiency (Big O notation)
+- Get familiar with Scratch as a visual programming language
+- Master pseudocode as a fundamental programming skill
+- Learn basic programming constructs: loops, conditions, functions, events
 
 ---
 
 ## 📖 Key Concepts
 
-### What is Computer Science?
+### Welcome & AI
 
-Computer science is fundamentally about **problem solving**. We take an **input**, apply an **algorithm**, and get an **output**.
+- AI is bringing new advances to computer science, but **learning fundamentals + being empowered by AI = new opportunities**
+- Understanding, creating, and organizing code makes you the driver and navigator
 
+### Visual Studio Code & First Program
+
+```python
+from openai import OpenAI
+
+client = OpenAI()
+
+user_prompt = input("Prompt: ")
+system_prompt = "Limit your answer to one sentence. Pretend you're a cat."
+
+response = client.responses.create(
+    input=user_prompt,
+    instructions=system_prompt,
+    model="gpt-5"
+)
+
+print(response.output_text)
 ```
-Input  →  [ Algorithm ]  →  Output
-```
 
-> 💡 **Key Insight:** An algorithm is a step-by-step set of instructions for solving a problem. The quality of your algorithm matters — a bad algorithm can be *correct* but still terribly slow.
-
----
+> 💡 **Only 10 lines of code to build a powerful program!**
 
 ### Representing Information — Binary
 
-Computers only understand **0s and 1s** (bits). Everything is encoded in binary.
+Computers only understand **0s and 1s** (bits).
 
-| Decimal | Binary |
-|---------|--------|
-| 0       | 0      |
-| 1       | 1      |
-| 2       | 10     |
-| 3       | 11     |
-| 4       | 100    |
-| 8       | 1000   |
+```
+Position:  2²   2¹   2⁰
+Weights:   4    2    1
 
-- **1 bit** = 0 or 1
+Example: 0 1 1 = 3
+```
+
+- **1 bit** = 0 or 1 (binary digit)
 - **1 byte** = 8 bits → can represent 0–255
+- `00000101` = decimal 5
+- `11111111` = decimal 255
 
-**ASCII** maps numbers to characters: `A = 65`, `a = 97`, `0 = 48`
+### ASCII
 
-**Unicode** extends ASCII to support all languages and emoji.
+**ASCII** maps binary patterns to characters:
 
----
+| Binary   | Decimal | Character |
+|----------|---------|-----------|
+| 01000001 | 65      | A         |
+| 01001000 | 72      | H         |
+| 01001001 | 73      | I         |
+| 00100001 | 33      | !         |
+
+### Unicode
+
+- Extends ASCII to support all languages, special characters, and **emoji**
+- Standardized across devices (though rendering may vary)
+
+### RGB
+
+- **RGB** = Red, Green, Blue
+- Three bytes form the color of each pixel
+- **Image** = collection of RGB values
+- **Video** = sequence of images
+- **Music** = various byte combinations
 
 ### Algorithms & Efficiency
 
-Consider finding a name in a phone book:
+**Algorithm**: A step-by-step set of instructions for solving a problem.
 
-| Approach | Steps (1000 pages) | Big-O |
-|----------|-------------------|-------|
-| Page by page | 1000 | O(n) |
-| Tear in half each time | ~10 | O(log n) |
+| Method | Big O | Description |
+|--------|-------|-------------|
+| Read page by page | O(n) | 100 names → up to 100 steps |
+| Two pages at a time | O(n/2) | Twice as fast |
+| Split in half (binary) | O(log₂n) | Doubling the problem adds only 1 step |
 
-> 💡 **Key Insight:** O(log n) is dramatically faster than O(n) for large inputs. This is why **binary search** matters.
+### Pseudocode
 
----
-
-### Scratch — Building Blocks
-
-Scratch teaches the core building constructs used in *every* programming language:
-
-| Concept | Scratch Block | Real-world equivalent |
-|---------|--------------|----------------------|
-| Sequence | Stack blocks top to bottom | Line-by-line code execution |
-| Loop | `repeat` / `forever` | `for`, `while` loops |
-| Condition | `if/else` | `if/else` statements |
-| Variable | `set [x] to 0` | `int x = 0;` |
-| Function | Custom block | function / method definition |
-| Event | `when 🚩 clicked` | event listeners |
-
----
-
-## 💻 Code Examples
-
-### Scratch: Simple Loop
+**Pseudocode**: Human-readable instructions describing algorithm steps.
 
 ```
-when 🚩 clicked
-  repeat 3
-    say "Hello!" for 1 second
+1   Pick up phone book
+2   Open to middle of phone book
+3   Look at page
+4   If person is on page
+5       Call person
+6   Else if person is earlier in book
+7       Open to middle of left half
+8       Return to line 3
+9   Else if person is later in book
+10      Open to middle of right half
+11      Return to line 3
+12  Else
+13      Quit
 ```
 
-**What this does:** Prints "Hello!" 3 times — equivalent to a `for` loop.
+### Four Building Blocks of Programming
 
-### Scratch: Condition
+| Element | Example | Term |
+|---------|---------|------|
+| Verb-starting lines | "pick up", "open", "look at" | **Functions** |
+| Conditional keywords | "if", "else if" | **Conditionals** |
+| True/false expressions | "person is earlier" | **Boolean Expressions** |
+| Go-to lines | "return to line 3" | **Loops** |
 
+---
+
+## 🧩 Scratch Programming
+
+### Hello World
+
+```scratch
+when green flag clicked
+say [hello, world]
 ```
-when 🚩 clicked
-  if <touching [wall]?> then
-    turn 180 degrees
-  end
+
+### Interactive — Hello, You
+
+```scratch
+when green flag clicked
+ask [What's your name?] and wait
+say (join [hello,] (answer))
 ```
 
-**What this does:** Checks a condition and changes behavior — equivalent to an `if` statement.
+### Loops & Abstraction
+
+**Before (repetitive):**
+```scratch
+when green flag clicked
+play sound (Meow v) until done
+wait (1) seconds
+play sound (Meow v) until done
+wait (1) seconds
+play sound (Meow v) until done
+wait (1) seconds
+```
+
+**After (with loop):**
+```scratch
+when green flag clicked
+repeat (3)
+play sound (Meow v) until done
+wait (1) seconds
+```
+
+**With custom function:**
+```scratch
+define meow n times
+repeat (n)
+play sound [meow v] until done
+wait (1) seconds
+
+when green flag clicked
+meow (3) times
+```
+
+### Conditionals
+
+```scratch
+when green flag clicked
+forever
+if <touching (mouse-pointer v)?> then
+play sound (Meow v) until done
+```
+
+### Oscartime Game — Collision Detection
+
+```scratch
+when green flag clicked
+forever
+if <touching [Oscar v] ?> then
+go to x: (pick random (0) to (240)) y: (180)
+```
+
+### Ivy's Hardest Game — Keyboard Input
+
+```scratch
+define listen for keyboard
+if <key (up arrow v) pressed?> then
+change y by (1)
+end
+if <key (down arrow v) pressed?> then
+change y by (-1)
+end
+if <key (right arrow v) pressed?> then
+change x by (1)
+end
+if <key (left arrow v) pressed?> then
+change x by (-1)
+end
+```
 
 ---
 
-## 🧩 Problem Set Notes
+## 📝 Summary
 
-### Problem Set 0 — Scratch Project
-
-**Description:** Create any interactive Scratch project using at least:
-- ≥ 2 sprites
-- ≥ 3 scripts total
-- Conditions, loops, custom blocks, and variables
-
-**My project idea:** A simple quiz game with score tracking.
-
-**Key challenge:** Syncing events between sprites using `broadcast`.
+- AI empowers but doesn't replace learning fundamentals
+- Computers use **binary** (0s and 1s) to represent everything
+- **ASCII** maps numbers to characters; **Unicode** extends to emoji
+- **RGB** values create colors; images/videos/music are all bytes
+- **Algorithms** vary in efficiency — prefer O(log n) over O(n)
+- **Pseudocode** bridges human thinking and code
+- Programming's four building blocks: **functions, conditionals, boolean expressions, loops**
+- Scratch demonstrates all these concepts visually
 
 ---
 
-## ❓ Questions & Confusions
-
-- [x] What exactly is a "bit" vs a "byte"? → *8 bits = 1 byte*
-- [ ] How does floating point representation work in binary?
-
----
-
-## 🔗 Further Reading
-
-- [CS50 Week 0 Notes](https://cs50.harvard.edu/x/2024/notes/0/) — Official notes
-- [Scratch](https://scratch.mit.edu/) — Try it yourself
-- [ASCII Table](https://www.asciitable.com/) — Character encoding reference
-
----
-
-*[Back to Index](../README.md) · [Next Week → Week 1: C](../week1-c/)*
+> 📌 **Next**: [Week 1 — C](../week1-c/notes.md)

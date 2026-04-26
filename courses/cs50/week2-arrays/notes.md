@@ -1,160 +1,203 @@
 # Week 2 — Arrays
 
-> 📅 Date: 2026-03-23  
-> 🎓 Source: [CS50 Lecture 2](https://cs50.harvard.edu/x/2024/weeks/2/)  
-> ⏱ Duration: ~2 hours
+> 📅 Source: [CS50 Lecture 2](https://cs50.harvard.edu/x/2026/notes/2/)  
+> 🎓 Course: CS50x 2026  
+> 👨‍🏫 Instructor: David J. Malan
 
 ---
 
 ## 🎯 Learning Objectives
 
-- [ ] Understand how arrays store data in contiguous memory
-- [ ] Declare, initialize, and access arrays in C
-- [ ] Work with strings as arrays of characters
-- [ ] Understand command-line arguments (`argc`, `argv`)
-- [ ] Get introduced to cryptography concepts
+- Learn how compilers work (preprocessing, compiling, assembling, linking)
+- Master debugging techniques (rubber duck, printf, debug50)
+- Understand arrays as contiguous memory
+- Learn that strings are arrays of characters (ending with `\0`)
+- Implement string operations manually and with libraries
+- Use command-line arguments in C programs
 
 ---
 
 ## 📖 Key Concepts
 
+### Debugging
+
+**Rubber Duck Debugging**: Talk through your code with an inanimate object (or person) to reason about bugs.
+
+**printf debugging**: Insert print statements to trace variable values.
+
+**debug50**: VS Code's built-in debugger.
+1. Set a breakpoint (red dot on line number)
+2. Run `debug50 ./program`
+3. Step through code, inspecting variables
+
+### Compiling — Four Steps
+
+```
+Source Code → [Preprocessing] → [Compiling] → [Assembling] → [Linking] → Machine Code
+```
+
+1. **Preprocessing**: `#include` directives are replaced with actual header file contents
+2. **Compiling**: Source code → Assembly code
+3. **Assembling**: Assembly code → Machine code (0s and 1s)
+4. **Linking**: Merges your code with pre-compiled libraries → Final executable
+
+### Data Types & Memory
+
+| Type | Bytes (typical) |
+|------|-----------------|
+| `bool` | 1 |
+| `char` | 1 |
+| `int` | 4 |
+| `long` | 8 |
+| `float` | 4 |
+| `double` | 8 |
+| `string` | variable |
+
 ### Arrays
 
-An array stores **multiple values of the same type** in contiguous memory locations.
+**Arrays store values in contiguous memory locations.**
 
 ```c
-// Declaration & initialization
-int scores[3] = {72, 85, 91};
-
-// Access by index (0-based!)
-printf("%i\n", scores[0]);   // 72
-printf("%i\n", scores[1]);   // 85
-printf("%i\n", scores[2]);   // 91
+int scores[3];
+scores[0] = 72;
+scores[1] = 73;
+scores[2] = 33;
 ```
 
-> 💡 **Key Insight:** Arrays in C don't store their own length. You must track the size yourself. Accessing out-of-bounds is **undefined behavior** — it won't crash reliably, which makes it dangerous.
+**With loop input:**
+```c
+#include <cs50.h>
+#include <stdio.h>
 
----
+const int N = 3;
 
-### Strings are Arrays of Characters
+float average(int length, int array[]);
+
+int main(void)
+{
+    int scores[N];
+    for (int i = 0; i < N; i++)
+    {
+        scores[i] = get_int("Score: ");
+    }
+    printf("Average: %f\n", average(N, scores));
+}
+
+float average(int length, int array[])
+{
+    int sum = 0;
+    for (int i = 0; i < length; i++)
+    {
+        sum += array[i];
+    }
+    return sum / (float) length;
+}
+```
+
+### Strings
+
+**Strings are arrays of `char`, terminated by `\0` (NUL).**
 
 ```c
-string s = "Hi!";
-// In memory: ['H']['i']['!']['\0']
-//              s[0] s[1] s[2] s[3]
+// These are equivalent:
+string s = "HI!";
+char *s = "HI!";
 ```
 
-The **null terminator** `'\0'` marks the end of a string — always takes 1 extra byte.
+**CS50's `string` is actually:** `typedef char *string;`
 
+```c
+char *s = "HI!";
+printf("%c%c%c\n", s[0], s[1], s[2]);  // H I !
+printf("%i %i %i %i\n", s[0], s[1], s[2], s[3]);  // 72 73 33 0
+```
+
+### String Length
+
+**Manual:**
+```c
+int string_length(string s)
+{
+    int n = 0;
+    while (s[n] != '\0')
+    {
+        n++;
+    }
+    return n;
+}
+```
+
+**With library:**
 ```c
 #include <string.h>
-
-int len = strlen("Hello");   // 5 (doesn't count '\0')
+int length = strlen(name);
 ```
 
----
+### String Case Conversion
+
+**Manual (ASCII):**
+```c
+// 'a' = 97, 'A' = 65, difference = 32
+if (s[i] >= 'a' && s[i] <= 'z')
+{
+    printf("%c", s[i] - 32);
+}
+```
+
+**Using ctype.h:**
+```c
+#include <ctype.h>
+printf("%c", toupper(s[i]));
+```
 
 ### Command-Line Arguments
 
 ```c
-int main(int argc, char *argv[])
-{
-    // argc = number of arguments (including program name)
-    // argv = array of argument strings
-    // argv[0] = program name
-    // argv[1] = first argument, etc.
-
-    if (argc == 2)
-        printf("Hello, %s!\n", argv[1]);
-    else
-        printf("Usage: ./hello [name]\n");
-}
-```
-
----
-
-### Useful `<string.h>` Functions
-
-| Function | Description |
-|----------|-------------|
-| `strlen(s)` | Length of string |
-| `strcmp(s1, s2)` | Compare strings (0 = equal) |
-| `strcpy(dst, src)` | Copy string |
-| `strcat(dst, src)` | Concatenate strings |
-| `toupper(c)` / `tolower(c)` | Change case (from `<ctype.h>`) |
-
----
-
-## 💻 Code Examples
-
-### Iterating over a String
-
-```c
 #include <cs50.h>
-#include <ctype.h>
 #include <stdio.h>
-#include <string.h>
 
-int main(void)
+int main(int argc, string argv[])
 {
-    string s = get_string("Input: ");
-    for (int i = 0, n = strlen(s); i < n; i++)
+    if (argc == 2)
     {
-        printf("%c", toupper(s[i]));
+        printf("hello, %s\n", argv[1]);
     }
-    printf("\n");
+    else
+    {
+        printf("hello, world\n");
+    }
 }
 ```
 
-### Caesar Cipher (Shift each letter by key)
+- `argc` = argument count
+- `argv[0]` = program name, `argv[1]` = first argument
+
+### Exit Status
 
 ```c
-// Rotate a letter by key positions
-char rotate(char c, int key)
+if (argc != 2)
 {
-    if (isupper(c))
-        return (c - 'A' + key) % 26 + 'A';
-    else if (islower(c))
-        return (c - 'a' + key) % 26 + 'a';
-    else
-        return c;
+    printf("Missing command-line argument\n");
+    return 1;  // Error
 }
+return 0;  // Success
 ```
 
----
-
-## 🧩 Problem Set Notes
-
-### Problem: Readability (Coleman-Liau Index)
-
-**Formula:** `index = 0.0588 * L - 0.296 * S - 15.8`  
-Where L = avg letters per 100 words, S = avg sentences per 100 words.
-
-**Approach:**
-1. Count letters, words, sentences
-2. Calculate L and S
-3. Apply formula, round to nearest int
-
-### Problem: Caesar / Substitution
-
-**Description:** Encrypt text by shifting (Caesar) or substituting (Substitution) letters.
-
-**Key insight for Caesar:** Use modulo 26 to wrap around the alphabet.
+Check with: `echo $?`
 
 ---
 
-## ❓ Questions & Confusions
+## 📝 Summary
 
-- [ ] Why does C use `strcmp` instead of `==` for string comparison?
-- [ ] What exactly is `char *argv[]` — a pointer to an array?
-
----
-
-## 🔗 Further Reading
-
-- [CS50 Week 2 Notes](https://cs50.harvard.edu/x/2024/notes/2/)
-- [C String Functions Reference](https://cplusplus.com/reference/cstring/)
+1. **Compiling** — Four steps: preprocessing → compiling → assembling → linking
+2. **Debugging** — Rubber duck, printf, debug50
+3. **Arrays** — Contiguous memory locations
+4. **Strings** — `char` arrays ending with `\0`
+5. **String operations** — Manual ASCII manipulation or library functions
+6. **Command-line arguments** — `argc` and `argv[]`
+7. **Exit status** — `return 0` (success) or `return 1` (error)
 
 ---
 
-*[← Week 1: C](../week1-c/) · [Back to Index](../README.md) · [Next Week → Week 3: Algorithms](../week3-algorithms/)*
+> 📌 **Prev**: [Week 1 — C](../week1-c/notes.md)  
+> 📌 **Next**: [Week 3 — Algorithms](../week3-algorithms/notes.md)

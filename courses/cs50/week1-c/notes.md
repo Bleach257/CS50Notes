@@ -1,145 +1,78 @@
 # Week 1 — C
 
-> 📅 Date: 2026-03-23  
-> 🎓 Source: [CS50 Lecture 1](https://cs50.harvard.edu/x/2024/weeks/1/)  
-> ⏱ Duration: ~2 hours
+> 📅 Source: [CS50 Lecture 1](https://cs50.harvard.edu/x/2026/notes/1/)  
+> 🎓 Course: CS50x 2026  
+> 👨‍🏫 Instructor: David J. Malan
 
 ---
 
 ## 🎯 Learning Objectives
 
-- [x] Write and compile a C program
-- [x] Understand data types, variables, and operators
-- [x] Use conditionals (`if`, `else if`, `else`, `switch`)
-- [x] Use loops (`for`, `while`, `do-while`)
-- [x] Call functions from the CS50 library
+- Transition from Scratch to text-based programming (C)
+- Understand source code, compilation, and machine code
+- Learn C syntax: variables, conditionals, loops, functions
+- Master command-line interface (CLI) basics
+- Evaluate code on three axes: correctness, design, style
 
 ---
 
 ## 📖 Key Concepts
 
-### Program Structure in C
+### Source Code & Compilation
 
-Every C program has this basic skeleton:
-
-```c
-#include <stdio.h>    // Include standard I/O library
-
-int main(void)        // Entry point — program starts here
-{
-    // your code
-    return 0;         // 0 = success
-}
+```
+Source Code → [Compiler] → Machine Code
 ```
 
-> 💡 **Key Insight:** Unlike Python, C must be **compiled** before running. Source code (`.c`) → compiler → machine code (binary executable).
+- **Source code**: Human-readable instructions
+- **Machine code**: 0s and 1s the computer understands
+- **Compiler**: Translates source code to machine code
 
----
+### Three Commands to Write/Run
 
-### Data Types
-
-| Type | Size | Range / Use |
-|------|------|-------------|
-| `int` | 4 bytes | Integers: −2,147,483,648 to 2,147,483,647 |
-| `long` | 8 bytes | Larger integers |
-| `float` | 4 bytes | Decimal numbers (less precise) |
-| `double` | 8 bytes | Decimal numbers (more precise) |
-| `char` | 1 byte | Single character: `'A'`, `'z'` |
-| `bool` | 1 byte | `true` or `false` (needs `<stdbool.h>`) |
-| `string` | varies | CS50 library type (array of chars) |
-
----
-
-### Operators
-
-```c
-// Arithmetic
-+  -  *  /  %     // modulo (remainder)
-
-// Comparison
-==  !=  <  >  <=  >=
-
-// Logical
-&&   // AND
-||   // OR
-!    // NOT
-
-// Assignment shortcuts
-x += 1;   // same as x = x + 1
-x++;      // increment by 1
-x--;      // decrement by 1
+```bash
+code hello.c    # Create/open file in VS Code
+make hello      # Compile
+./hello         # Run
 ```
 
----
-
-### Conditionals
-
-```c
-if (x > 0)
-{
-    printf("Positive\n");
-}
-else if (x < 0)
-{
-    printf("Negative\n");
-}
-else
-{
-    printf("Zero\n");
-}
-```
-
----
-
-### Loops
-
-```c
-// for loop — when you know how many times
-for (int i = 0; i < 10; i++)
-{
-    printf("%i\n", i);   // prints 0–9
-}
-
-// while loop — when condition-based
-int i = 0;
-while (i < 10)
-{
-    printf("%i\n", i);
-    i++;
-}
-
-// do-while — always runs at least once (good for user input)
-int n;
-do
-{
-    n = get_int("Enter a positive number: ");
-}
-while (n < 1);
-```
-
----
-
-## 💻 Code Examples
-
-### Hello, World
+### Hello World
 
 ```c
 #include <stdio.h>
 
 int main(void)
 {
-    printf("Hello, world!\n");
-    return 0;
+    printf("hello, world\n");
 }
 ```
 
-**Compile & run:**
-```bash
-make hello      # or: clang -o hello hello.c
-./hello
-```
+### From Scratch to C
 
-### Using CS50 Library
+| Scratch | C |
+|---------|---|
+| `say` block | `printf("hello, world\n");` |
+| `ask` block | `get_string("What's your name? ")` |
+| `join` block | `%s` format code |
+
+### Escape Characters
+
+| Sequence | Meaning |
+|----------|---------|
+| `\n` | New line |
+| `\r` | Carriage return |
+| `\"` | Double quote |
+| `\'` | Single quote |
+| `\\` | Backslash |
+
+### Header Files & Libraries
+
+- `#include <stdio.h>` → Standard I/O (enables `printf`)
+- `#include <cs50.h>` → CS50 library (enables `get_string`, `get_int`, etc.)
+
+**CS50 helper functions**: `get_char`, `get_double`, `get_float`, `get_int`, `get_long`, `get_string`
+
+### Hello, You
 
 ```c
 #include <cs50.h>
@@ -147,69 +80,166 @@ make hello      # or: clang -o hello hello.c
 
 int main(void)
 {
-    string name = get_string("What's your name? ");
-    printf("Hello, %s!\n", name);
-    return 0;
+    string answer = get_string("What's your name? ");
+    printf("hello, %s\n", answer);
 }
 ```
 
-### Format Specifiers for `printf`
+- `%s` = format code (placeholder) for strings
 
-| Specifier | Type |
-|-----------|------|
-| `%i` or `%d` | int |
-| `%f` | float / double |
-| `%c` | char |
-| `%s` | string |
-| `%li` | long |
+### Linux CLI Commands
 
----
+| Command | Purpose |
+|---------|---------|
+| `cd` | Change directory |
+| `cp` | Copy files |
+| `ls` | List files |
+| `mkdir` | Create directory |
+| `mv` | Move/rename files |
+| `rm` | Delete files |
+| `rmdir` | Delete directory |
 
-## 🧩 Problem Set Notes
-
-### Problem: Hello
-
-**Description:** Ask user for their name and print "hello, [name]"
-
-**Solution:** Use `get_string()` and `printf()` with `%s` format specifier.
-
-### Problem: Mario (Less / More)
-
-**Description:** Print a pyramid of `#` characters using loops.
-
-**Approach:**
-1. Get height from user (1–8), re-prompt if invalid → `do-while`
-2. Outer loop: each row
-3. Inner loops: spaces, then hashes
+### Conditionals
 
 ```c
-for (int i = 0; i < height; i++)
+if (x < y)
 {
-    // Print spaces: (height - 1 - i) spaces
-    for (int j = 0; j < height - 1 - i; j++)
-        printf(" ");
-    // Print hashes: (i + 1) hashes
-    for (int j = 0; j <= i; j++)
-        printf("#");
-    printf("\n");
+    printf("x is less than y\n");
+}
+else if (x > y)
+{
+    printf("x is greater than y\n");
+}
+else
+{
+    printf("x is equal to y\n");
 }
 ```
 
+### Data Types & Format Codes
+
+| Type | Format Code |
+|------|-------------|
+| `bool` | — |
+| `char` | `%c` |
+| `float` | `%f` |
+| `int` | `%i` |
+| `long` | `%li` |
+| `string` | `%s` |
+
+### Variables
+
+```c
+int counter = 0;
+counter = counter + 1;  // or counter += 1; or counter++;
+counter--;              // decrement
+```
+
+### Loops
+
+**While loop:**
+```c
+int i = 0;
+while (i < 3)
+{
+    printf("meow\n");
+    i++;
+}
+```
+
+**For loop (preferred):**
+```c
+for (int i = 0; i < 3; i++)
+{
+    printf("meow\n");
+}
+```
+
+**Do-while loop (at least once):**
+```c
+int n;
+do
+{
+    n = get_int("What's n? ");
+}
+while (n < 0);
+```
+
+### Functions
+
+```c
+#include <stdio.h>
+
+void meow(int n);  // Function prototype
+
+int main(void)
+{
+    meow(3);
+}
+
+void meow(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        printf("meow\n");
+    }
+}
+```
+
+- **Scope**: Variables in `main` only exist within `main`; copies are passed to functions
+
+### Code Quality — Three Axes
+
+| Axis | Tool | Question |
+|------|------|----------|
+| **Correctness** | `check50` | Does it work? |
+| **Design** | `design50` | Is it well-designed? |
+| **Style** | `style50` | Is it readable? |
+
+### Mario — Nested Loops
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    const int n = 3;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+}
+```
+
+### Operators & Overflow
+
+| Operator | Meaning |
+|----------|---------|
+| `+` | Addition |
+| `-` | Subtraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `%` | Modulo (remainder) |
+
+- **Integer overflow**: `int` max is typically 2,147,483,647
+- **Integer division truncates**: `7 / 2` = `3` (use `(float) x` for true division)
+- **Floating-point imprecision**: Not all decimals can be exactly represented
+
 ---
 
-## ❓ Questions & Confusions
+## 📝 Summary
 
-- [ ] Why does integer division in C truncate instead of round?
-- [ ] What's the difference between `float` precision loss vs `double`?
-
----
-
-## 🔗 Further Reading
-
-- [CS50 Week 1 Notes](https://cs50.harvard.edu/x/2024/notes/1/) — Official notes
-- [C Reference](https://en.cppreference.com/w/c) — Language reference
-- [CS50 Manual Pages](https://manual.cs50.io/) — CS50 library functions
+- Transitioned from Scratch blocks to C syntax
+- Learned the edit → compile → run workflow
+- Mastered variables, conditionals, loops, and functions
+- Evaluated code on correctness, design, and style
+- Understood type system, operators, and their limitations
 
 ---
 
-*[← Week 0: Scratch](../week0-scratch/) · [Back to Index](../README.md) · [Next Week → Week 2: Arrays](../week2-arrays/)*
+> 📌 **Prev**: [Week 0 — Scratch](../week0-scratch/notes.md)  
+> 📌 **Next**: [Week 2 — Arrays](../week2-arrays/notes.md)
