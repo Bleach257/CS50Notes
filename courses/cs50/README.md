@@ -1,6 +1,7 @@
 # CS50 — Harvard's Introduction to Computer Science
 
-> 🎓 Source: [cs50.harvard.edu](https://cs50.harvard.edu/x/)  
+> 🎓 Source: [CS50x 2026](https://cs50.harvard.edu/x/2026/)  
+> 📅 Updated: 2026-04-26  
 > 📅 Started: 2026-03-23
 
 ---
@@ -19,7 +20,7 @@
 | 7 | Week 7 | SQL | [📄 Notes](./week7-sql/notes.md) |
 | 8 | Week 8 | HTML/CSS/JavaScript | [📄 Notes](./week8-html-css-js/notes.md) |
 | 9 | Week 9 | Flask | [📄 Notes](./week9-flask/notes.md) |
-| 10 | Week 10 | Ethics & AI | [📄 Notes](./week10-ethics/notes.md) |
+| 10 | Week 10 | The End & Course Wrap-up | [📄 Notes](./week10-ethics/notes.md) |
 
 ---
 
@@ -28,15 +29,15 @@
 ```
 Week 0  — Scratch          ████████████ 100%  ✅
 Week 1  — C                ████████████ 100%  ✅
-Week 2  — Arrays           ██████░░░░░░  50%  🔄
-Week 3  — Algorithms       ░░░░░░░░░░░░   0%  ⏳
-Week 4  — Memory           ░░░░░░░░░░░░   0%  ⏳
-Week 5  — Data Structures  ░░░░░░░░░░░░   0%  ⏳
-Week 6  — Python           ░░░░░░░░░░░░   0%  ⏳
-Week 7  — SQL              ░░░░░░░░░░░░   0%  ⏳
-Week 8  — HTML/CSS/JS      ░░░░░░░░░░░░   0%  ⏳
-Week 9  — Flask            ░░░░░░░░░░░░   0%  ⏳
-Week 10 — Ethics & AI      ░░░░░░░░░░░░   0%  ⏳
+Week 2  — Arrays           ████████████ 100%  ✅
+Week 3  — Algorithms       ████████████ 100%  ✅
+Week 4  — Memory           ████████████ 100%  ✅
+Week 5  — Data Structures  ████████████ 100%  ✅
+Week 6  — Python           ████████████ 100%  ✅
+Week 7  — SQL              ████████████ 100%  ✅
+Week 8  — HTML/CSS/JS      ████████████ 100%  ✅
+Week 9  — Flask            ████████████ 100%  ✅
+Week 10 — The End          ████████████ 100%  ✅
 ```
 
 ---
